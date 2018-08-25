@@ -6,8 +6,12 @@
   2. Run maven install
   3. Click on Run -> Run Configurations
   4. Click on Arguments tab
-  5. In Program Arguments section , Enter your arguments.
+  5. In Program Arguments section , Enter your arguments (e.g. "./src/assets/test-case.json" 1).
   6. Click Apply
+
+# high-level description
+  I approached this problem by first finding a java library that would make dealing with java dates easier.
+  
 
 # Assumptions
 1.	The reservations will be grouped by campsite, start and end date.
