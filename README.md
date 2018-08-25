@@ -10,7 +10,9 @@
   6. Click Apply
 
 # high-level description
-  I approached this problem by first finding a java library that would make dealing with java dates easier.
+  The first thing I did was figure out how to get the objects in the test case file to serialize easily into a POJO.
+  After figuring that out I looked into a java library that would make dealing with java dates easier. I decided to use the 
+  Joda time library which had many features that made tackling this problem much easier.
   
 
 # Assumptions
