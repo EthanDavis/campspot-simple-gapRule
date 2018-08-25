@@ -1,0 +1,32 @@
+package com.campspot;
+
+import java.io.File;
+import java.io.IOException;
+
+import com.campspot.managers.ReservationManager;
+import com.campspot.models.Park;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
+
+public class App {
+	static ReservationManager reservationManager = new ReservationManager();
+
+	public static void main(String[] args) {
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new JodaModule());
+
+		Park park;
+		try {
+			park = objectMapper.readValue(new File("./src/assets/test-case.json"), Park.class);
+			reservationManager.getAvailableCampSites(park, 1);
+		} catch (JsonParseException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
