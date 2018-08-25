@@ -19,8 +19,8 @@ public class App {
 
 		Park park;
 		try {
-			park = objectMapper.readValue(new File("./src/assets/test-case.json"), Park.class);
-			reservationManager.getAvailableCampSites(park, 1);
+			park = objectMapper.readValue(new File(args[0]), Park.class);
+			reservationManager.getAvailableCampSites(park, Integer.parseInt(args[1]));
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
