@@ -6,12 +6,13 @@ import java.util.stream.Collectors;
 
 import org.joda.time.Interval;
 
+import com.campspot.interfaces.Reservable;
 import com.campspot.models.Campsite;
 import com.campspot.models.Park;
 import com.campspot.models.Reservation;
 import com.campspot.models.Search;
 
-public class ReservationManager {
+public class ReservationManager implements Reservable {
 
 	public List<Campsite> getAvailableCampSites(Park park, int gapSize) {
 
@@ -23,7 +24,7 @@ public class ReservationManager {
 		for (Campsite currentCampsite : park.getCampsites()) {
 			List<Reservation> reservations = currentCampsite.getReservations(park).stream()
 					.filter(res -> willOverLap(park.getSearchDates(), res) || (checkGapRule(searchInterval,
-							new Interval(res.getStartDate(), res.getEndDate())) == gapSize))
+							new Interval(res.getStartDate(), res.getEndDate()), gapSize)))
 					.collect(Collectors.toList());
 
 			if (reservations.size() == 0) {
@@ -50,8 +51,8 @@ public class ReservationManager {
 		return searchInterval.isBefore(intervalToCheck);
 	}
 
-	private int checkGapRule(Interval searchInterval, Interval intervalToCheck) {
-		return searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1;
+	private boolean checkGapRule(Interval searchInterval, Interval intervalToCheck, int gapSize) {
+		return searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1 == gapSize;
 	}
 
 	private void displayAvailableCampsites(List<Campsite> availableCampsites) {
