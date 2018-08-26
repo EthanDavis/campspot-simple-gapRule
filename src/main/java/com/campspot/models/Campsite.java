@@ -28,8 +28,8 @@ public class Campsite {
 		this.name = name;
 	}
 	
-	public List<Reservation> getReservations(Park campSite) {
-		return Arrays.stream(campSite.getReservations()).filter(res -> res.getCampsiteId() == id)
+	public List<Reservation> getReservations(Park park) {
+		return Arrays.stream(park.getReservations()).filter(res -> res.getCampsiteId() == id)
 				.collect(Collectors.toList());
 	}
 

@@ -123,6 +123,17 @@ public class ReservationManagerTest {
 		assertThat(result.size(), equalTo(0));
 	}
 	
+	@Test
+	public void should_fail_if_gapRule_is_set_to_3_day_and_gap_is_1() {
+		List<Campsite> result;
+		testPark.setCampsites(createCampsites(1));
+		testPark.setReservations(createReservations(new DateTime("2018-02-01"), new DateTime("2018-02-03"), 0, 7, 2));
+
+		result = target.getAvailableCampSites(testPark, 3);
+
+		assertThat(result.size(), equalTo(0));
+	}
+	
 	private Campsite[] createCampsites(int numOfCampsites) {
 		Campsite[] campsites = new Campsite[numOfCampsites];
 		for (int i = 0; i < numOfCampsites; i++) {

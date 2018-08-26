@@ -52,7 +52,8 @@ public class ReservationManager implements Reservable {
 	}
 
 	private boolean checkGapRule(Interval searchInterval, Interval intervalToCheck, int gapSize) {
-		return searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1 == gapSize;
+		 int gap = searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1;
+		 return gap != 0 && gap <= gapSize;
 	}
 
 	private void displayAvailableCampsites(List<Campsite> availableCampsites) {
