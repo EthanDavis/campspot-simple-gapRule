@@ -31,7 +31,6 @@ public class ReservationManager implements Reservable {
 				availableCampsite.add(currentCampsite);
 			}
 		}
-		displayAvailableCampsites(availableCampsite);
 		return availableCampsite;
 	}
 
@@ -54,12 +53,6 @@ public class ReservationManager implements Reservable {
 	private boolean checkGapRule(Interval searchInterval, Interval intervalToCheck, int gapSize) {
 		int gap = searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1;
 		return gap != 0 && gap <= gapSize;
-	}
-
-	private void displayAvailableCampsites(List<Campsite> availableCampsites) {
-		for (Campsite campsite : availableCampsites) {
-			System.out.println(campsite.getName());
-		}
 	}
 
 }
