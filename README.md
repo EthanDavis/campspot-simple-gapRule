@@ -8,11 +8,16 @@
   4. Click on Arguments tab
   5. In Program Arguments section , Enter your arguments (e.g. "./src/assets/test-case.json" 1).
   6. Click Apply
+  
+  ## Command Line
+   1.you need to have the maven cli installed on your machine
+   2. run a maven 
+   3.
 
 # high-level description
 The first thing I did was figure out how to get the objects in the test case file to serialize easily into a POJO.
 After figuring that out I looked into a java library that would make dealing with java dates easier. I decided to use the 
-Joda time library which had many features that made tackling this problem much easier.I started by creating my domain models for the objects specified in the test file. Then I started writing a unit test that would easily simulate a valid campsite and a campsite that breaks the gap rule. From there I needed to make a way to get each reservation for a specific campsite. initally I had this method in the `ReservationManager` class but quickly realized that it would be much easier if this         method lived in the `Campsite` class. then it was a matter of removing any campsite that broke the gap rule. I frist did this with `for` loops but again realized after a bit of googling that it would be much easier if I changed the `for` loops into a `stream` and used the `filter` function. I then just needed to check if any reservations were returned and if none were returned I would add that campsite to the list of available campsites.
+Joda time library which had many features that made tackling this problem much easier. I started by creating my domain models for the objects specified in the test file. Then I started writing a unit test that would easily simulate a valid campsite and a campsite that breaks the gap rule. From there I needed to make a way to get each reservation for a specific campsite. Initally I had this method in the `ReservationManager` class but quickly realized that it would be much easier if this         method lived in the `Campsite` class. Then it was a matter of removing any campsite that broke the gap rule. I first did this with `for` loops but again realized after a bit of googling that it would be much easier if I changed the `for` loops into a `stream` and used the `filter` method. I then just needed to check if any reservations were returned and if none were returned I would add that campsite to the list of available campsites.
   
 # Assumptions
 1.	The reservations will be grouped by campsite, start and end date.
