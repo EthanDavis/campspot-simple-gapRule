@@ -19,3 +19,4 @@
 1.	The reservations will be grouped by campsite, start and end date.
 2.	If a search start date land on a reservation end date or a search end lands on a reservation start date that the campsite is able to be reserved.
 3. The user know the location of the file they are passing in and the application should not have to search for it.
+4. If the gap rule size is 3 then all gaps less that that are also invalid. (e.g. gap size is 3 and the gap returned is 2)        this will not return that campsite.
