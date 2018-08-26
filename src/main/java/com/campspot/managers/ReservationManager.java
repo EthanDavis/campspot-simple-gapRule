@@ -22,9 +22,9 @@ public class ReservationManager implements Reservable {
 				park.getSearchDates().getEndDate());
 
 		for (Campsite currentCampsite : park.getCampsites()) {
-			List<Reservation> reservations = currentCampsite.getReservations(park).stream()
-					.filter(res -> willOverLap(park.getSearchDates(), res) || (checkGapRule(searchInterval,
-							new Interval(res.getStartDate(), res.getEndDate()), gapSize)))
+			List<Reservation> reservations = currentCampsite.getReservations(park).stream().filter(res -> willOverLap(
+					park.getSearchDates(), res)
+					|| (checkGapRule(searchInterval, new Interval(res.getStartDate(), res.getEndDate()), gapSize)))
 					.collect(Collectors.toList());
 
 			if (reservations.size() == 0) {
@@ -52,8 +52,8 @@ public class ReservationManager implements Reservable {
 	}
 
 	private boolean checkGapRule(Interval searchInterval, Interval intervalToCheck, int gapSize) {
-		 int gap = searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1;
-		 return gap != 0 && gap <= gapSize;
+		int gap = searchInterval.gap(intervalToCheck).toPeriod().getDays() - 1;
+		return gap != 0 && gap <= gapSize;
 	}
 
 	private void displayAvailableCampsites(List<Campsite> availableCampsites) {
