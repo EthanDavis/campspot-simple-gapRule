@@ -33,17 +33,6 @@ public class ReservationManagerTest {
 	}
 
 	@Test
-	public void should_return_empty_list_if_gap_rule_is_broken_by_a_reservation_after_the_search_dates() {
-		List<Campsite> result;
-		testPark.setCampsites(createCampsites(1));
-		testPark.setReservations(createReservations(new DateTime("2018-02-01"), new DateTime("2018-02-03"), 0, 7, 2));
-
-		result = target.getAvailableCampSites(testPark, 1);
-
-		assertThat(result.size(), equalTo(0));
-	}
-	
-	@Test
 	public void should_return_all_available_campsites_if_search_does_not_break_any_rules() {
 		List<Campsite> result;
 		testPark.setCampsites(createCampsites(1));
@@ -53,6 +42,17 @@ public class ReservationManagerTest {
 
 		assertThat(result.size(), equalTo(1));
 		assertThat(result.get(0).getName(), equalTo(testPark.getCampsites()[0].getName()));
+	}
+	
+	@Test
+	public void should_return_empty_list_if_gap_rule_is_broken_by_a_reservation_after_the_search_dates() {
+		List<Campsite> result;
+		testPark.setCampsites(createCampsites(1));
+		testPark.setReservations(createReservations(new DateTime("2018-02-01"), new DateTime("2018-02-03"), 0, 7, 2));
+
+		result = target.getAvailableCampSites(testPark, 1);
+
+		assertThat(result.size(), equalTo(0));
 	}
 	
 	@Test
