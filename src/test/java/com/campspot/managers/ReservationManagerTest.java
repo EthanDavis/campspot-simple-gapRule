@@ -101,7 +101,7 @@ public class ReservationManagerTest {
 	}
 	
 	@Test
-	public void should_fail_if_gapRule_is_set_to_2_day() {
+	public void should_return_empty_list_if_gapRule_is_set_to_2_day() {
 		List<Campsite> result;
 		testPark.setCampsites(createCampsites(1));
 		testPark.setReservations(createReservations(new DateTime("2018-02-01"), new DateTime("2018-02-03"), 0, 8, 2));
@@ -113,7 +113,7 @@ public class ReservationManagerTest {
 
 	
 	@Test
-	public void should_fail_if_gapRule_is_set_to_3_day() {
+	public void should_return_empty_list_if_gapRule_is_set_to_3_day() {
 		List<Campsite> result;
 		testPark.setCampsites(createCampsites(1));
 		testPark.setReservations(createReservations(new DateTime("2018-02-01"), new DateTime("2018-02-03"), 0, 9, 2));
@@ -124,7 +124,7 @@ public class ReservationManagerTest {
 	}
 	
 	@Test
-	public void should_fail_if_gapRule_is_set_to_3_day_and_gap_is_1() {
+	public void should_return_empty_list_if_gapRule_is_set_to_3_day_and_gap_is_1() {
 		List<Campsite> result;
 		testPark.setCampsites(createCampsites(1));
 		testPark.setReservations(createReservations(new DateTime("2018-02-01"), new DateTime("2018-02-03"), 0, 7, 2));
