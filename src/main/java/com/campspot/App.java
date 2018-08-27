@@ -19,7 +19,7 @@ public class App {
 
 		Park park;
 		try {
-			int gapRule = (args[1] != null) ? Integer.parseInt(args[1]) : 1;
+			int gapRule = (args.length == 2 && args[1] != null) ? Integer.parseInt(args[1]) : 1;
 			park = objectMapper.readValue(new File(args[0]), Park.class);
 			reservationManager.getAvailableCampSites(park, gapRule)
 			.forEach(campsite ->System.out.println(campsite.getName()));
