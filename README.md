@@ -6,13 +6,13 @@
   2. Run maven install
   3. Click on Run -> Run Configurations
   4. Click on Arguments tab
-  5. In Program Arguments section , Enter your arguments (e.g. "./src/assets/test-case.json" 1). If no gapRule size is passed in then it will default to 1;
+  5. In Program Arguments section , Enter your arguments (e.g. "./src/assets/test-case.json" 1). If no gapRule size is passed in then it will default to 1;.
   6. Click Apply
   
   ## Command Line
    1. you need to have the maven cli or maven wrapper installed on your machine
    2. run a maven build
-   3. java -jar target/campspot-0.0.1-SNAPSHOT-jar-with-dependencies.jar testFilePath gapSize (e.g. /test-case.json 1). If no gapRule size is passed in then it will default to 1;
+   3. java -jar target/campspot-0.0.1-SNAPSHOT-jar-with-dependencies.jar testFilePath gapSize (e.g. /test-case.json 1). If no gapRule size is passed in then it will default to 1.
 
 # high-level description
 The first thing I did was figure out how to get the objects in the test case file to serialize easily into a POJO.
