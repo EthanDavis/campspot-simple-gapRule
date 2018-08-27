@@ -6,7 +6,7 @@
   2. Run maven install
   3. Click on Run -> Run Configurations
   4. Click on Arguments tab
-  5. In Program Arguments section , Enter your arguments (e.g. "./src/assets/test-case.json" 1). If no gapRule size is passed in then it will default to 1;.
+  5. In Program Arguments section , Enter your arguments (e.g. "./src/assets/test-case.json" 1). If no gapRule size is passed in then it will default to 1.
   6. Click Apply
   
   ## Command Line
