@@ -23,4 +23,4 @@ Joda time library which had many features that made tackling this problem much e
 1.	he reservations will be grouped by campsite, start date, and end date.
 2.	If a search start date lands on a reservation end date or a search end lands on a reservation start date that the campsite is able to be reserved.
 3. The user knows the location of the file they are passing in and the application should not have to search for it.
-4. If the gap rule size is 3 then all gaps less that that are also invalid. (e.g. gap size is 3 and the gap returned is 2)        this campsite is unavailable.
+4. If the gap rule size is 3 then all gaps less than that are also invalid. (e.g. gap size is 3 and the gap returned is 2)        this campsite is unavailable.
