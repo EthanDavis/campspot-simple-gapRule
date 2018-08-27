@@ -10,7 +10,7 @@
   6. Click Apply
   
   ## Command Line
-   1. you need to have the maven cli or maven wrapper installed on your machine
+   1. you need to have the maven cli or maven wrapper installed on your machine Here is a guide if you don't have it installed: (https://maven.apache.org/install.html)
    2. run a maven build
    3. java -jar target/campspot-0.0.1-SNAPSHOT-jar-with-dependencies.jar testFilePath gapSize (e.g. /test-case.json 1). If no gapRule size is passed in then it will default to 1.
 
